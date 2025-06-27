@@ -1,5 +1,65 @@
-export default function Toprated() {
+import { tvShows } from "@/lib/data-service";
+import Link from "next/link";
+import Image from "next/image";
+import GridContainer from "@/components/GridContainer";
+export const metadata = {
+  title: "CINEPLUSE | Top Rated",
+  description: "Top Rated of CINEPLUSE",
+};
+export default async function TopRated() {
+  const data = await tvShows("tv/top_rated");
+  const trendingTv = data.results;
   return (
-    <h1 className="font-primary mt-[50px] text-3xl text-white">Toprated</h1>
+    <section className="min-h-main mt-[50px] w-full">
+      <div className="container-layout">
+        <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
+          Top Rated
+        </h1>
+        <GridContainer>
+          {trendingTv.map((show) => (
+            <div
+              key={show.id}
+              className="border-primary overflow-hidden border-2 pb-2"
+            >
+              <div className="relative transition-transform duration-300 hover:scale-[1.05]">
+                <Link href={`/tv/${show.id}`}>
+                  <Image
+                    src={
+                      show.poster_path
+                        ? `https://image.tmdb.org/t/p/w500${show.poster_path}`
+                        : "/no-image.jpg"
+                    }
+                    alt={show.name}
+                    className="object-fit"
+                    width={300}
+                    height={400}
+                    priority
+                  />
+                </Link>
+                <span
+                  style={{
+                    width: `${Math.floor(show.vote_average * 10)}%`,
+                    background: `${
+                      Math.floor(show.vote_average * 10) >= 67
+                        ? "#008000"
+                        : Math.floor(show.vote_average * 10) >= 50
+                          ? "#ffff00"
+                          : "#ff253a"
+                    }`,
+                  }}
+                  className="absolute bottom-0 block h-1"
+                ></span>
+              </div>
+              <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
+                <p className="text-primary text-center text-sm">{show.name}</p>
+                <p className="text-secondary mt-1 text-sm">
+                  {show.first_air_date}
+                </p>
+              </div>
+            </div>
+          ))}
+        </GridContainer>
+      </div>
+    </section>
   );
 }

@@ -3,7 +3,7 @@
 :root {
   --color-grayscale-26: #000000;
   --color-green-4: #29ab87;
-  --color-green-3: rgb(41, 171, 135);
+  --color-green-3: #008000;
   --color-grayscale-6: #e6e6e6;
   --color-grayscale-5: rgb(230, 230, 230);
   --color-grayscale-8: #a8a8a8;
@@ -11,7 +11,6 @@
   --color-grayscale-2: #ffffff;
   --color-grayscale-1: rgb(255, 255, 255);
   --color-yellow-2: #ffff00;
-  --color-yellow-1: rgb(255, 255, 0);
   --color-green-6: #008000;
   --color-green-5: rgb(0, 128, 0);
   --color-grayscale-23: #000000cc;
@@ -54,17 +53,42 @@ img {
 }
 .container-layout {
   width: 100%;
-  max-width: 95%;
+  max-width: 96%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.8rem;
+}
+.backdrop {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.2;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @theme inline {
   --font-primary: var(--font-bebas);
   --font-secondary: var(--font-mono);
+  --font-error: var(--font-nosifer);
   --color-primary: var(--color-grayscale-6);
   --color-secondary: var(--color-green-4);
+  --color-rating-1: var(--color-green-3);
+  --color-rating-2: var(--color-yellow-2);
+  --color-rating-3: var(--color-red-2);
   --color-header: var(--color-grayscale-15);
   --color-main: var(--color-grayscale-15);
-  /* --color-sub: var(--color-grayscale-23); */
+  --color-error: var(--color-grayscale-13);
+  --height-main: 100dvh;
 }

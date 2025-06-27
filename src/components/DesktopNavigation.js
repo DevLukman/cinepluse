@@ -53,7 +53,7 @@ const navigationLinks = [
     mainLink: [
       {
         theLink: "popular",
-        href: "/person",
+        href: "/people",
       },
     ],
   },
@@ -111,12 +111,12 @@ function Navigation({ header, mainLink, number, isOpen, setIsOpen }) {
       onMouseEnter={handleOpen}
       onMouseLeave={handleLeave}
     >
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         <span>{header}</span>
-        {!curOpen ? <FaCaretDown /> : <FaCaretUp />}
+        <span> {!curOpen ? <FaCaretDown /> : <FaCaretUp />}</span>
       </div>
       {curOpen && (
-        <div className="absolute left-[50%] flex w-[175px] -translate-x-[50%] flex-col rounded-xl border-[1px]">
+        <div className="absolute left-[50%] z-5 flex w-[175px] -translate-x-[50%] flex-col rounded-xl border-[1px]">
           {mainLink.map((mainNav, index) => (
             <Link
               key={index}

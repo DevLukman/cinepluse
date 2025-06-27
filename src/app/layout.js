@@ -1,5 +1,6 @@
 import { Bebas_Neue } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import { Nosifer } from "next/font/google";
 
 const BebasFont = Bebas_Neue({
   subsets: ["latin"],
@@ -11,6 +12,11 @@ const GeistFont = Geist_Mono({
   weight: "400",
   variable: "--font-mono",
 });
+const NosiferFont = Nosifer({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-nosifer",
+});
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 export const metadata = {
@@ -21,7 +27,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${BebasFont.variable} ${GeistFont.variable}`}>
+      <body
+        className={`${BebasFont.variable} ${GeistFont.variable} ${NosiferFont.variable}`}
+      >
         <Navigation />
         {children}
       </body>

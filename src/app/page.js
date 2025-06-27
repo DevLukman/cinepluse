@@ -1,5 +1,11 @@
+import TrendingMovies from "@/components/TrendingMovies";
+import TrendingShows from "@/components/TrendingShows";
+
 export default function HomePage() {
   return (
-    <h1 className="font-primary mt-[50px] text-3xl text-white">CinePluse</h1>
+    <>
+      <TrendingMovies />
+      <TrendingShows />
+    </>
   );
 }

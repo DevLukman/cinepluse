@@ -1,23 +1,30 @@
 import GridContainer from "@/components/GridContainer";
-import { movies } from "@/lib/data-service";
+import { movieByKeyword } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
-export const metadata = {
-  title: "CINEPLUSE | Top Rated",
-  description: "Top Rated of CINEPLUSE",
-};
-export default async function TopRated() {
-  const data = await movies("movie/top_rated");
-  const trendingMovies = data.results;
+export async function generateMetadata({ params }) {
+  const keywordID = await params;
+  const relatedKeyword = keywordID.keywordId.split("-")[1];
+  return {
+    title: `CinePluse | ${relatedKeyword}`,
+  };
+}
 
+export default async function KeyWordResult({ params }) {
+  const keywordID = await params;
+  const movieBykeywords = await movieByKeyword(
+    `keyword/${keywordID.keywordId}/movies`,
+  );
+  const keywordResult = movieBykeywords.results;
+  const relatedKeyword = keywordID.keywordId.split("-")[1];
   return (
-    <section className="min-h-main mt-[45px] w-full">
+    <section className="min-h-main mt-[20px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
-          Top Rated
+          {relatedKeyword} Related
         </h1>
         <GridContainer>
-          {trendingMovies.map((movie) => (
+          {keywordResult.map((movie) => (
             <div
               key={movie.id}
               className="border-primary overflow-hidden border-2 pb-2"

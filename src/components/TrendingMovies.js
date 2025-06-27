@@ -1,21 +1,27 @@
-import GridContainer from "@/components/GridContainer";
 import { movies } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
-export const metadata = {
-  title: "CINEPLUSE | Top Rated",
-  description: "Top Rated of CINEPLUSE",
-};
-export default async function TopRated() {
-  const data = await movies("movie/top_rated");
+import { FaCaretRight } from "react-icons/fa";
+import GridContainer from "./GridContainer";
+
+export default async function TrendingMovies() {
+  const data = await movies("movie/popular");
   const trendingMovies = data.results;
 
   return (
-    <section className="min-h-main mt-[45px] w-full">
+    <section className="min-h-main mt-[20px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
-          Top Rated
+          Trending Movies
         </h1>
+        <p className="text-primary flex items-center gap-1.5 text-base">
+          <span>
+            <FaCaretRight color="#29ab87" />
+          </span>
+          <span className="font-secondary text-sm">
+            Explore the latest and popular movies
+          </span>
+        </p>
         <GridContainer>
           {trendingMovies.map((movie) => (
             <div
@@ -41,7 +47,7 @@ export default async function TopRated() {
                   style={{
                     width: `${Math.floor(movie.vote_average * 10)}%`,
                     background: `${
-                      Math.floor(movie.vote_average * 10) >= 67
+                      Math.floor(movie.vote_average * 10) >= 65
                         ? "#008000"
                         : Math.floor(movie.vote_average * 10) >= 50
                           ? "#ffff00"

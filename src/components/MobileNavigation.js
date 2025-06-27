@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp, FaSearch } from "react-icons/fa";
 import { HiBars3 } from "react-icons/hi2";
 import { FaXmark } from "react-icons/fa6";
 
@@ -56,7 +56,7 @@ const navigationLinks = [
     mainLink: [
       {
         theLink: "popular",
-        href: "/person",
+        href: "/people",
       },
     ],
   },
@@ -152,7 +152,10 @@ function Navigation({
       className="font-primary relative w-fit cursor-pointer text-2xl"
       onClick={handleOpen}
     >
-      {header}
+      <div className="flex items-center gap-1">
+        <span> {header}</span>
+        <span> {!curOpen ? <FaCaretDown /> : <FaCaretUp />}</span>
+      </div>
       {curOpen && (
         <div className="flex flex-col">
           {mainLink.map((mainNav, index) => (
