@@ -59,22 +59,37 @@ export default function TvRecommendations({ recommendationsData }) {
             {recommendationsData.results.map((recommend) => (
               <SwiperSlide
                 key={recommend.id}
-                className="border-primary overflow-auto border-2 pb-2 transition-all duration-300 ease-in-out hover:scale-[1.05]"
+                className="border-primary overflow-hidden border-2 pb-2"
               >
-                <Link href={`/tv/${recommend.id}`}>
-                  <Image
-                    src={
-                      recommend.poster_path
-                        ? `https://image.tmdb.org/t/p/w500${recommend.poster_path}`
-                        : "/no-image.jpg"
-                    }
-                    alt={recommend.name}
-                    className="object-fit"
-                    width={300}
-                    height={400}
-                    priority
-                  />
-                </Link>
+                <div className="relative transition-all duration-300 ease-in-out hover:scale-[1.05]">
+                  <Link href={`/tv/${recommend.id}`}>
+                    <Image
+                      src={
+                        recommend.poster_path
+                          ? `https://image.tmdb.org/t/p/w500${recommend.poster_path}`
+                          : "/no-image.jpg"
+                      }
+                      alt={recommend.name}
+                      className="object-fit"
+                      width={300}
+                      height={400}
+                      priority
+                    />
+                  </Link>
+                  <span
+                    style={{
+                      width: `${Math.floor(recommend.vote_average * 10)}%`,
+                      background: `${
+                        Math.floor(recommend.vote_average * 10) >= 65
+                          ? "#008000"
+                          : Math.floor(recommend.vote_average * 10) >= 50
+                            ? "#ffff00"
+                            : "#ff253a"
+                      }`,
+                    }}
+                    className="absolute bottom-0 block h-1"
+                  ></span>
+                </div>
                 <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
                   <p className="text-primary text-center text-sm">
                     {recommend.name}

@@ -2,6 +2,7 @@ import CastSlider from "@/components/castSlider";
 import {
   castandCrew,
   getIMDBDataForTV,
+  getTrailer,
   keywords,
   recommendations,
 } from "@/lib/data-service";
@@ -42,6 +43,7 @@ export default async function TVDetailsMobile({ data }) {
     Genre: genre,
     imdbVotes,
   } = IMDbResponse;
+  const tvTrailer = await getTrailer(`tv/${id}/videos`);
 
   return (
     <section className="lg:hidden">
@@ -238,7 +240,7 @@ export default async function TVDetailsMobile({ data }) {
             <div className="mt-2 flex flex-wrap gap-2">
               {production_companies.map((company) => (
                 <p
-                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5"
+                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 text-sm"
                   key={company.id}
                 >
                   {company.name}
@@ -254,7 +256,7 @@ export default async function TVDetailsMobile({ data }) {
               {keywordResults.results.map((keyword) => (
                 <Link
                   href={`/keyword/${keyword.id}-${keyword.name}`}
-                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 transition-transform duration-300 hover:scale-[1.05]"
+                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 text-sm transition-transform duration-300 hover:scale-[1.05]"
                   key={keyword.id}
                 >
                   {keyword.name}

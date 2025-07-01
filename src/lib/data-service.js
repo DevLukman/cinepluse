@@ -93,6 +93,14 @@ export async function castCredit(endpoint) {
 
   return response.json();
 }
+export async function getTrailer(endpoint) {
+  const response = await fetch(
+    `${BASE_URL}${endpoint}?api_key=${process.env.TMDB_KEY}&language=en-US`,
+  );
+  if (!response.ok) throw new Error(`There was an error get ${endpoint}`);
+
+  return response.json();
+}
 
 export async function getIMDBData(endpoint) {
   const response = await fetch(

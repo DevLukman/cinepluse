@@ -17,7 +17,7 @@ export default async function TrendingShows() {
           <span>
             <FaCaretRight color="#29ab87" />
           </span>
-          <span className="font-secondary text-sm">
+          <span className="font-secondary text-[11px] sm:text-sm">
             Explore the latest and popular TV shows
           </span>
         </p>

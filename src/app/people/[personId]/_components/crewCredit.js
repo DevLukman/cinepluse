@@ -25,6 +25,13 @@ export default function CastCredit({ crewData }) {
     }
   }, []);
 
+  if (crewData.length === 0)
+    return (
+      <p className="text-primary font-primary text-2xl">
+        No crew data is available at the moment
+      </p>
+    );
+
   return (
     <div className="relative mt-4 w-full">
       <button

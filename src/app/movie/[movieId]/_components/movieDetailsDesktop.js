@@ -1,17 +1,19 @@
 import { convertMinutesToHours, formatToDollars } from "@/utils/helper";
 import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-const KEY = "f84fc31d";
+
 import Image from "next/image";
 import {
   castandCrew,
   getIMDBData,
+  getTrailer,
   keywords,
   recommendations,
 } from "@/lib/data-service";
 import Link from "next/link";
 import Recommendations from "./movieRecommendation";
 import CastSlider from "../../../../components/castSlider";
+import TrailerModal from "@/components/TrailerModal";
 export default async function MoviesDetailsDesktop({ data }) {
   const {
     backdrop_path,
@@ -35,6 +37,10 @@ export default async function MoviesDetailsDesktop({ data }) {
   const keywordResults = await keywords(`movie/${id}/keywords`);
   const recommendationsData = await recommendations(
     `movie/${id}/recommendations`,
+  );
+  const movieTrailer = await getTrailer(`movie/${id}/videos`);
+  const youtubeTrailer = movieTrailer.results.find(
+    (vid) => vid.type === "Trailer" && vid.site === "YouTube",
   );
   const {
     Rated: rated,
@@ -114,7 +120,7 @@ export default async function MoviesDetailsDesktop({ data }) {
               {tagline}
             </p>
             <div className="w-full">
-              <p className="font-secondary text-primary max-w-[900px] text-base">
+              <p className="font-secondary text-primary max-w-[900px] text-justify text-base">
                 {overview}
               </p>
             </div>
@@ -129,12 +135,7 @@ export default async function MoviesDetailsDesktop({ data }) {
               </div>
             </div>
             <div className="text-secondary flex gap-6">
-              <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
-                <span>
-                  <FaPlay />
-                </span>
-                <span className="font-secondary">Watch trailer</span>
-              </button>
+              <TrailerModal youtubeTrailer={youtubeTrailer} />
               <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
                 <span>
                   <FaRegHeart />

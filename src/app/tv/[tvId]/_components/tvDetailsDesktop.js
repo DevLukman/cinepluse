@@ -2,6 +2,7 @@ import CastSlider from "@/components/castSlider";
 import {
   castandCrew,
   getIMDBDataForTV,
+  getTrailer,
   keywords,
   recommendations,
 } from "@/lib/data-service";
@@ -10,6 +11,7 @@ import Link from "next/link";
 import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import TvRecommendations from "./tvRecommendations";
+import TrailerModal from "@/components/TrailerModal";
 
 export default async function TvDetailsDesktop({ data }) {
   const {
@@ -42,7 +44,10 @@ export default async function TvDetailsDesktop({ data }) {
     Genre: genre,
     imdbVotes,
   } = IMDbResponse;
-
+  const tvTrailer = await getTrailer(`tv/${id}/videos`);
+  const youtubeTrailer = tvTrailer.results.find(
+    (vid) => vid.type === "Trailer" && vid.site === "YouTube",
+  );
   return (
     <section className="hidden lg:block">
       <section>
@@ -105,7 +110,7 @@ export default async function TvDetailsDesktop({ data }) {
               {tagline ? tagline : "No tagline for this TV show"}
             </p>
             <div className="w-full">
-              <p className="font-secondary text-primary max-w-[900px] text-sm">
+              <p className="font-secondary text-primary max-w-[900px] text-justify text-sm">
                 {overview}
               </p>
             </div>
@@ -120,12 +125,7 @@ export default async function TvDetailsDesktop({ data }) {
               </div>
             </div>
             <div className="text-secondary flex gap-6">
-              <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
-                <span>
-                  <FaPlay />
-                </span>
-                <span className="font-secondary">Watch trailer</span>
-              </button>
+              <TrailerModal youtubeTrailer={youtubeTrailer} />
               <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
                 <span>
                   <FaRegHeart />

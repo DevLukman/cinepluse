@@ -54,22 +54,24 @@ export default function CastSlider({ castData }) {
         {castData.cast.map((actor, index) => (
           <SwiperSlide
             key={index}
-            className="border-primary overflow-auto border-2 pb-2 transition-all duration-300 ease-in-out hover:scale-[1.05]"
+            className="border-primary overflow-hidden border-2 pb-2"
           >
-            <Link href={`/people/${actor.id}`}>
-              <Image
-                src={
-                  actor.profile_path
-                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
-                    : "/no-image.jpg"
-                }
-                alt={actor.name}
-                className="object-fit"
-                width={300}
-                height={400}
-                priority
-              />
-            </Link>
+            <div className="transition-all duration-300 ease-in-out hover:scale-[1.05]">
+              <Link href={`/people/${actor.id}`}>
+                <Image
+                  src={
+                    actor.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                      : "/no-image.jpg"
+                  }
+                  alt={actor.name}
+                  className="object-fit"
+                  width={300}
+                  height={400}
+                  priority
+                />
+              </Link>
+            </div>
             <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
               <p className="text-primary text-center text-base">{actor.name}</p>
               <p className="text-secondary text-center text-sm">

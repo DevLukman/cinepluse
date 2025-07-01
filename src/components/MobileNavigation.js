@@ -67,7 +67,7 @@ export default function MobileNavigation() {
   return (
     <>
       <header className="bg-header">
-        <nav className="container-layout text-primary flex w-full items-center justify-between lg:hidden">
+        <nav className="container-layout text-primary flex w-full items-center justify-between py-2 lg:hidden">
           <button
             className="cursor-pointer"
             onClick={() => setOpenNav((openNav) => !openNav)}

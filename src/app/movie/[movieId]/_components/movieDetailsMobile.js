@@ -1,6 +1,7 @@
 import {
   castandCrew,
   getIMDBData,
+  getTrailer,
   keywords,
   recommendations,
 } from "@/lib/data-service";
@@ -11,7 +12,7 @@ import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import CastSlider from "../../../../components/castSlider";
 import Recommendations from "./movieRecommendation";
-const KEY = "f84fc31d";
+import TrailerModal from "@/components/TrailerModal";
 export default async function MovieDetailsMobile({ data }) {
   const {
     backdrop_path,
@@ -43,6 +44,10 @@ export default async function MovieDetailsMobile({ data }) {
   const keywordResults = await keywords(`movie/${id}/keywords`);
   const recommendationsData = await recommendations(
     `movie/${id}/recommendations`,
+  );
+  const movieTrailer = await getTrailer(`movie/${id}/videos`);
+  const youtubeTrailer = movieTrailer.results.find(
+    (vid) => vid.type === "Trailer" && vid.site === "YouTube",
   );
   const {
     Rated: rated,
@@ -144,12 +149,7 @@ export default async function MovieDetailsMobile({ data }) {
             </div>
           </div>
           <div className="text-secondary flex gap-6">
-            <button className="flex cursor-pointer items-center gap-2 text-sm transition-transform duration-300 hover:scale-[1.07]">
-              <span>
-                <FaPlay />
-              </span>
-              <span className="font-secondary">Watch trailer</span>
-            </button>
+            <TrailerModal youtubeTrailer={youtubeTrailer} />
             <button className="flex cursor-pointer items-center gap-2 text-sm transition-transform duration-300 hover:scale-[1.07]">
               <span>
                 <FaRegHeart />
@@ -250,7 +250,7 @@ export default async function MovieDetailsMobile({ data }) {
             <div className="mt-2 flex flex-wrap gap-2">
               {production_companies.map((company) => (
                 <p
-                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5"
+                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 text-sm"
                   key={company.id}
                 >
                   {company.name}
@@ -266,7 +266,7 @@ export default async function MovieDetailsMobile({ data }) {
               {keywordResults.keywords.map((keyword) => (
                 <Link
                   href={`/keyword/${keyword.id}-${keyword.name}`}
-                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 transition-transform duration-300 hover:scale-[1.05]"
+                  className="text-primary font-secondary border-secondary w-fit space-y-2 rounded-sm border-2 px-1.5 text-sm transition-transform duration-300 hover:scale-[1.05]"
                   key={keyword.id}
                 >
                   {keyword.name}
