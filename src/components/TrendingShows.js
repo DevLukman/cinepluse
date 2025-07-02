@@ -1,5 +1,5 @@
 import { tvShows } from "@/lib/data-service";
-import { FaCaretRight } from "react-icons/fa";
+import { FaCaretRight, FaRegHeart } from "react-icons/fa";
 import GridContainer from "./GridContainer";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +8,7 @@ export default async function TrendingShows() {
   const data = await tvShows("tv/popular");
   const trendingTv = data.results;
   return (
-    <section className="min-h-main mt-[50px] w-full">
+    <section className="mt-[50px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
           Trending Tv shows
@@ -25,8 +25,11 @@ export default async function TrendingShows() {
           {trendingTv.map((show) => (
             <div
               key={show.id}
-              className="border-primary overflow-hidden border-2 pb-2"
+              className="border-primary relative overflow-hidden border-2 pb-2"
             >
+              <button className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2.5 py-2.5">
+                <FaRegHeart color="green" size="1.2rem" />
+              </button>
               <div className="relative transition-transform duration-300 hover:scale-[1.05]">
                 <Link href={`/tv/${show.id}`}>
                   <Image

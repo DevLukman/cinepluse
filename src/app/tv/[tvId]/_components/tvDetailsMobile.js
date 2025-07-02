@@ -11,6 +11,8 @@ import Link from "next/link";
 import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import TvRecommendations from "./tvRecommendations";
+import TrailerModal from "@/components/TrailerModal";
+import AddToWishList from "@/components/AddToWishList";
 
 export default async function TVDetailsMobile({ data }) {
   const {
@@ -44,6 +46,9 @@ export default async function TVDetailsMobile({ data }) {
     imdbVotes,
   } = IMDbResponse;
   const tvTrailer = await getTrailer(`tv/${id}/videos`);
+  const youtubeTrailer = tvTrailer.results.find(
+    (vid) => vid.type === "Trailer" && vid.site === "YouTube",
+  );
 
   return (
     <section className="lg:hidden">
@@ -125,18 +130,16 @@ export default async function TVDetailsMobile({ data }) {
             </div>
           </div>
           <div className="text-secondary flex gap-6">
-            <button className="flex cursor-pointer items-center gap-2 text-sm transition-transform duration-300 hover:scale-[1.07]">
-              <span>
-                <FaPlay />
-              </span>
-              <span className="font-secondary">Watch trailer</span>
-            </button>
-            <button className="flex cursor-pointer items-center gap-2 text-sm transition-transform duration-300 hover:scale-[1.07]">
-              <span>
-                <FaRegHeart />
-              </span>
-              <span className="font-secondary">Add to wishlist</span>
-            </button>
+            <TrailerModal youtubeTrailer={youtubeTrailer} />
+            <AddToWishList
+              id={id}
+              poster_path={poster_path}
+              name={name}
+              first_air_date={first_air_date}
+              vote_average={vote_average}
+              mediaType="tv"
+              content="Add to wishlist"
+            />
           </div>
           <div className="border-secondary mt-2 border-y py-4">
             <div className="font-secondary flex flex-wrap gap-3">

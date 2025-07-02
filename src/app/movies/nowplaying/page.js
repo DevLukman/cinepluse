@@ -2,6 +2,7 @@ import GridContainer from "@/components/GridContainer";
 import { movies } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
+import { FaRegHeart } from "react-icons/fa";
 export const metadata = {
   title: "CINEPLUSE | Now_Playing",
   description: "Now Playing of CINEPLUSE",
@@ -21,8 +22,11 @@ export default async function NowPlaying() {
           {trendingMovies.map((movie) => (
             <div
               key={movie.id}
-              className="border-primary overflow-hidden border-2 pb-2"
+              className="border-primary relative overflow-hidden border-2 pb-2"
             >
+              <button className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2.5 py-2.5">
+                <FaRegHeart color="green" size="1.2rem" />
+              </button>
               <div className="relative transition-transform duration-300 hover:scale-[1.05]">
                 <Link href={`/movie/${movie.id}`}>
                   <Image

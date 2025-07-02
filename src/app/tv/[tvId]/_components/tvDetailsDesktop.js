@@ -12,6 +12,7 @@ import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import TvRecommendations from "./tvRecommendations";
 import TrailerModal from "@/components/TrailerModal";
+import AddToWishList from "@/components/AddToWishList";
 
 export default async function TvDetailsDesktop({ data }) {
   const {
@@ -28,6 +29,7 @@ export default async function TvDetailsDesktop({ data }) {
     name,
     number_of_episodes,
     number_of_seasons,
+    vote_average,
   } = data;
   const keywordResults = await keywords(`tv/${id}/keywords`);
   const castData = await castandCrew(`tv/${id}/credits`);
@@ -126,12 +128,15 @@ export default async function TvDetailsDesktop({ data }) {
             </div>
             <div className="text-secondary flex gap-6">
               <TrailerModal youtubeTrailer={youtubeTrailer} />
-              <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
-                <span>
-                  <FaRegHeart />
-                </span>
-                <span className="font-secondary">Add to wishlist</span>
-              </button>
+              <AddToWishList
+                id={id}
+                poster_path={poster_path}
+                name={name}
+                first_air_date={first_air_date}
+                vote_average={vote_average}
+                mediaType="tv"
+                content="Add to wishlist"
+              />
             </div>
           </div>
         </div>

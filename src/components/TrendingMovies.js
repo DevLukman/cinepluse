@@ -1,15 +1,16 @@
 import { movies } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCaretRight } from "react-icons/fa";
+import { FaCaretRight, FaRegHeart } from "react-icons/fa";
 import GridContainer from "./GridContainer";
+import AddToWishList from "./AddToWishList";
 
 export default async function TrendingMovies() {
   const data = await movies("movie/popular");
   const trendingMovies = data.results;
 
   return (
-    <section className="min-h-main mt-[20px] w-full">
+    <section className="mt-[20px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
           Trending Movies
@@ -26,8 +27,20 @@ export default async function TrendingMovies() {
           {trendingMovies.map((movie) => (
             <div
               key={movie.id}
-              className="border-primary overflow-hidden border-2 pb-2"
+              className="border-primary relative overflow-hidden border-2 pb-2"
             >
+              <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2.5 py-2.5">
+                <AddToWishList
+                  size="1.2rem"
+                  id={movie.id}
+                  title={movie.title}
+                  poster_path={movie.poster_path}
+                  vote_average={movie.vote_average}
+                  release_date={movie.release_date}
+                  mediaType="movie"
+                  content=""
+                />
+              </span>
               <div className="relative transition-transform duration-300 hover:scale-[1.05]">
                 <Link href={`/movie/${movie.id}`}>
                   <Image

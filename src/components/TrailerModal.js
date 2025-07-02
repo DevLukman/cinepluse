@@ -20,7 +20,7 @@ export default function TrailerModal({ youtubeTrailer }) {
       <div className="overflow-hidden">
         <button
           onClick={() => setOpenModal((open) => !open)}
-          className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]"
+          className="flex cursor-pointer items-center gap-1 text-sm transition-transform duration-300 hover:scale-[1.07]"
         >
           <span>
             <FaPlay />

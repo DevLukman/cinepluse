@@ -13,6 +13,7 @@ import { GoDotFill } from "react-icons/go";
 import CastSlider from "../../../../components/castSlider";
 import Recommendations from "./movieRecommendation";
 import TrailerModal from "@/components/TrailerModal";
+import AddToWishList from "@/components/AddToWishList";
 export default async function MovieDetailsMobile({ data }) {
   const {
     backdrop_path,
@@ -150,12 +151,15 @@ export default async function MovieDetailsMobile({ data }) {
           </div>
           <div className="text-secondary flex gap-6">
             <TrailerModal youtubeTrailer={youtubeTrailer} />
-            <button className="flex cursor-pointer items-center gap-2 text-sm transition-transform duration-300 hover:scale-[1.07]">
-              <span>
-                <FaRegHeart />
-              </span>
-              <span className="font-secondary">Add to wishlist</span>
-            </button>
+            <AddToWishList
+              id={id}
+              title={title}
+              poster_path={poster_path}
+              vote_average={vote_average}
+              release_date={release_date}
+              mediaType="movie"
+              content="Add to wishlist"
+            />
           </div>
           <div className="border-secondary mt-2 border-y py-4">
             <div className="font-secondary flex flex-wrap gap-3">

@@ -14,11 +14,13 @@ import Link from "next/link";
 import Recommendations from "./movieRecommendation";
 import CastSlider from "../../../../components/castSlider";
 import TrailerModal from "@/components/TrailerModal";
+import AddToWishList from "@/components/AddToWishList";
 export default async function MoviesDetailsDesktop({ data }) {
   const {
     backdrop_path,
     poster_path,
     budget,
+    vote_average,
     genres,
     homepage,
     id,
@@ -136,12 +138,15 @@ export default async function MoviesDetailsDesktop({ data }) {
             </div>
             <div className="text-secondary flex gap-6">
               <TrailerModal youtubeTrailer={youtubeTrailer} />
-              <button className="flex cursor-pointer items-center gap-2 transition-transform duration-300 hover:scale-[1.07]">
-                <span>
-                  <FaRegHeart />
-                </span>
-                <span className="font-secondary">Add to wishlist</span>
-              </button>
+              <AddToWishList
+                id={id}
+                title={title}
+                poster_path={poster_path}
+                vote_average={vote_average}
+                release_date={release_date}
+                mediaType="movie"
+                content="Add to wishlist"
+              />
             </div>
           </div>
         </div>
