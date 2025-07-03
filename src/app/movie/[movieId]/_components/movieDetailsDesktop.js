@@ -1,8 +1,8 @@
 import { convertMinutesToHours, formatToDollars } from "@/utils/helper";
-import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-
-import Image from "next/image";
+import AddToWishList from "@/components/AddToWishList";
+import TrailerModal from "@/components/TrailerModal";
 import {
   castandCrew,
   getIMDBData,
@@ -10,11 +10,10 @@ import {
   keywords,
   recommendations,
 } from "@/lib/data-service";
+import Image from "next/image";
 import Link from "next/link";
-import Recommendations from "./movieRecommendation";
 import CastSlider from "../../../../components/castSlider";
-import TrailerModal from "@/components/TrailerModal";
-import AddToWishList from "@/components/AddToWishList";
+import Recommendations from "./movieRecommendation";
 export default async function MoviesDetailsDesktop({ data }) {
   const {
     backdrop_path,
@@ -122,7 +121,7 @@ export default async function MoviesDetailsDesktop({ data }) {
               {tagline}
             </p>
             <div className="w-full">
-              <p className="font-secondary text-primary max-w-[900px] text-justify text-base">
+              <p className="font-secondary text-primary max-w-[900px] text-justify text-sm">
                 {overview}
               </p>
             </div>
@@ -146,6 +145,7 @@ export default async function MoviesDetailsDesktop({ data }) {
                 release_date={release_date}
                 mediaType="movie"
                 content="Add to wishlist"
+                content2="Remove from wishlist"
               />
             </div>
           </div>

@@ -1,4 +1,6 @@
+import AddToWishList from "@/components/AddToWishList";
 import CastSlider from "@/components/castSlider";
+import TrailerModal from "@/components/TrailerModal";
 import {
   castandCrew,
   getIMDBDataForTV,
@@ -8,11 +10,9 @@ import {
 } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
-import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import TvRecommendations from "./tvRecommendations";
-import TrailerModal from "@/components/TrailerModal";
-import AddToWishList from "@/components/AddToWishList";
 
 export default async function TvDetailsDesktop({ data }) {
   const {
@@ -136,6 +136,7 @@ export default async function TvDetailsDesktop({ data }) {
                 vote_average={vote_average}
                 mediaType="tv"
                 content="Add to wishlist"
+                content2="Remove from wishlist"
               />
             </div>
           </div>

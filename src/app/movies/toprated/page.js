@@ -1,3 +1,4 @@
+import AddToWishList from "@/components/AddToWishList";
 import GridContainer from "@/components/GridContainer";
 import { movies } from "@/lib/data-service";
 import Image from "next/image";
@@ -23,9 +24,18 @@ export default async function TopRated() {
               key={movie.id}
               className="border-primary relative overflow-hidden border-2 pb-2"
             >
-              <button className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2.5 py-2.5">
-                <FaRegHeart color="green" size="1.2rem" />
-              </button>
+              <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
+                <AddToWishList
+                  size="1.2rem"
+                  id={movie.id}
+                  title={movie.title}
+                  poster_path={movie.poster_path}
+                  vote_average={movie.vote_average}
+                  release_date={movie.release_date}
+                  mediaType="movie"
+                  content=""
+                />
+              </span>
               <div className="relative transition-transform duration-300 hover:scale-[1.05]">
                 <Link href={`/movie/${movie.id}`}>
                   <Image

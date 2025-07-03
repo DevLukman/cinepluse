@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import wishListReducer from "./wishlistSlice";
 
-export const store = configureStore({
-  reducer: {
-    wishlist: wishListReducer,
-  },
-});
-
-export default store;
+export const store = (preloadedState) =>
+  configureStore({
+    reducer: {
+      wishlist: wishListReducer,
+    },
+    preloadedState,
+  });

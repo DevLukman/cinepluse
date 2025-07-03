@@ -1,3 +1,5 @@
+import AddToWishList from "@/components/AddToWishList";
+import TrailerModal from "@/components/TrailerModal";
 import {
   castandCrew,
   getIMDBData,
@@ -8,12 +10,10 @@ import {
 import { convertMinutesToHours, formatToDollars } from "@/utils/helper";
 import Image from "next/image";
 import Link from "next/link";
-import { FaPlay, FaRegHeart, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import CastSlider from "../../../../components/castSlider";
 import Recommendations from "./movieRecommendation";
-import TrailerModal from "@/components/TrailerModal";
-import AddToWishList from "@/components/AddToWishList";
 export default async function MovieDetailsMobile({ data }) {
   const {
     backdrop_path,
@@ -138,7 +138,9 @@ export default async function MovieDetailsMobile({ data }) {
           <p className="font-secondary text-primary italic opacity-70">
             {tagline}
           </p>
-          <p className="font-secondary text-primary text-base">{overview}</p>
+          <p className="font-secondary text-primary text-justify text-sm">
+            {overview}
+          </p>
           <div className="flex flex-col gap-[0.7rem]">
             <div className="font-secondary">
               <p className="text-primary text-sm">{writer}</p>
@@ -159,6 +161,7 @@ export default async function MovieDetailsMobile({ data }) {
               release_date={release_date}
               mediaType="movie"
               content="Add to wishlist"
+              content2="Remove from wishlist"
             />
           </div>
           <div className="border-secondary mt-2 border-y py-4">

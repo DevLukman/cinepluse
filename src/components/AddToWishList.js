@@ -5,8 +5,8 @@ import {
   getWishList,
   removeFromWishList,
 } from "@/store/wishlistSlice";
-import { FaRegHeart } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
+import { FaRegHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function AddToWishList({
@@ -19,11 +19,11 @@ export default function AddToWishList({
   release_date = "",
   mediaType,
   content,
+  content2,
   size,
 }) {
   const dispatch = useDispatch();
   const wishListContent = useSelector(getWishList);
-  console.log(wishListContent);
   const inWishList = wishListContent.find((item) => item.id === id);
   function handleAddToWishList() {
     const wishlist = {
@@ -50,14 +50,12 @@ export default function AddToWishList({
     >
       <span>
         {!inWishList ? (
-          <FaRegHeart color="green" size={size} />
+          <FaRegHeart color="#29ab87" size={size} />
         ) : (
-          <AiFillHeart color="green" size={size} />
+          <AiFillHeart color="#29ab87" size={size} />
         )}
       </span>
-      <span className="font-secondary">
-        {inWishList ? "Remove from wishlist" : content}
-      </span>
+      <span className="font-secondary">{inWishList ? content2 : content}</span>
     </button>
   );
 }

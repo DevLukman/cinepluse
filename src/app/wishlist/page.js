@@ -1,4 +1,5 @@
 "use client";
+import AddToWishList from "@/components/AddToWishList";
 import GridContainer from "@/components/GridContainer";
 import { getWishList } from "@/store/wishlistSlice";
 import Image from "next/image";
@@ -9,22 +10,22 @@ export default function Wishlist() {
   const wishListContent = useSelector(getWishList);
   if (wishListContent.length === 0)
     return (
-      <h1 className="font-primary text-secondary absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-3xl">
+      <h1 className="font-primary text-secondary absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-2xl sm:text-3xl">
         Your Wishlist is Empty
       </h1>
     );
   return (
     <section className="container-layout">
-      <h1 className="font-primary text-secondary mt-[20px] text-3xl">
-        Wishlist
-      </h1>
-      ;
+      <h1 className="font-primary text-secondary text-3xl">Wishlist</h1>;
       <GridContainer>
         {wishListContent.map((wish) => (
           <div
             key={wish.id}
-            className="border-primary overflow-hidden border-2 pb-2"
+            className="border-primary relative overflow-hidden border-2 pb-2"
           >
+            <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
+              <AddToWishList size="1.2rem" id={wish.id} />
+            </span>
             <div className="relative transition-transform duration-300 hover:scale-[1.05]">
               <Link
                 href={
@@ -61,7 +62,7 @@ export default function Wishlist() {
               ></span>
             </div>
             <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
-              <p className="text-primary text-center text-base">
+              <p className="text-primary text-center text-sm">
                 {wish.title || wish.name}
               </p>
               <p className="text-secondary mt-1 text-sm">

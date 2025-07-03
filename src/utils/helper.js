@@ -39,6 +39,21 @@ export function calculateAge(birthDateString) {
   return age;
 }
 
-// Example usage:
-const age = calculateAge("1990-05-15");
-console.log(age); // Output will vary depending on current date
+export function loadState() {
+  try {
+    const itemfromLocalStorage = localStorage.getItem("wishlist");
+    return itemfromLocalStorage ? JSON.parse(itemfromLocalStorage) : undefined;
+  } catch (err) {
+    console.error("Could not load state from localStorage", err);
+    return undefined;
+  }
+}
+
+export function saveState(state) {
+  try {
+    const itemToLocalStorage = JSON.stringify(state);
+    localStorage.setItem("wishlist", itemToLocalStorage);
+  } catch (err) {
+    console.error("Could not save state to localStorage", err);
+  }
+}

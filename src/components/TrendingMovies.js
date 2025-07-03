@@ -29,7 +29,7 @@ export default async function TrendingMovies() {
               key={movie.id}
               className="border-primary relative overflow-hidden border-2 pb-2"
             >
-              <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2.5 py-2.5">
+              <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
                 <AddToWishList
                   size="1.2rem"
                   id={movie.id}

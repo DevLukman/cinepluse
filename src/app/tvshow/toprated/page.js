@@ -2,6 +2,7 @@ import { tvShows } from "@/lib/data-service";
 import Link from "next/link";
 import Image from "next/image";
 import GridContainer from "@/components/GridContainer";
+import AddToWishList from "@/components/AddToWishList";
 export const metadata = {
   title: "CINEPLUSE | Top Rated",
   description: "Top Rated of CINEPLUSE",
@@ -19,8 +20,19 @@ export default async function TopRated() {
           {trendingTv.map((show) => (
             <div
               key={show.id}
-              className="border-primary overflow-hidden border-2 pb-2"
+              className="border-primary relative overflow-hidden border-2 pb-2"
             >
+              <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
+                <AddToWishList
+                  size="1.2rem"
+                  id={show.id}
+                  title={show.name}
+                  poster_path={show.poster_path}
+                  vote_average={show.vote_average}
+                  release_date={show.first_air_date}
+                  mediaType="tv"
+                />
+              </span>
               <div className="relative transition-transform duration-300 hover:scale-[1.05]">
                 <Link href={`/tv/${show.id}`}>
                   <Image

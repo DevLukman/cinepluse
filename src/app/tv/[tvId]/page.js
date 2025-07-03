@@ -10,8 +10,8 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function moviesDetails({ params }) {
-  const paramsId = await params;
-  const data = await tvShowsDetails(`tv/${paramsId.tvId}`);
+  const { tvId } = await params;
+  const data = await tvShowsDetails(`tv/${tvId}`);
   return (
     <>
       <TvDetailsDesktop data={data} />

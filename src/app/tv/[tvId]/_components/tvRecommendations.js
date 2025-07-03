@@ -1,4 +1,5 @@
 "use client";
+import AddToWishList from "@/components/AddToWishList";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -59,8 +60,19 @@ export default function TvRecommendations({ recommendationsData }) {
             {recommendationsData.results.map((recommend) => (
               <SwiperSlide
                 key={recommend.id}
-                className="border-primary overflow-hidden border-2 pb-2"
+                className="border-primary relative overflow-hidden border-2 pb-2"
               >
+                <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
+                  <AddToWishList
+                    size="1.2rem"
+                    id={recommend.id}
+                    title={recommend.name}
+                    poster_path={recommend.poster_path}
+                    vote_average={recommend.vote_average}
+                    release_date={recommend.first_air_date}
+                    mediaType="tv"
+                  />
+                </span>
                 <div className="relative transition-all duration-300 ease-in-out hover:scale-[1.05]">
                   <Link href={`/tv/${recommend.id}`}>
                     <Image

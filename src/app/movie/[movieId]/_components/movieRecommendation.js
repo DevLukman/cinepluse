@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
+import AddToWishList from "@/components/AddToWishList";
 export default function Recommendations({ recommendationsData }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -59,8 +60,19 @@ export default function Recommendations({ recommendationsData }) {
             {recommendationsData.results.map((recommend) => (
               <SwiperSlide
                 key={recommend.id}
-                className="border-primary overflow-hidden border-2 pb-2"
+                className="border-primary relative overflow-hidden border-2 pb-2"
               >
+                <span className="absolute top-0 right-0 z-10 cursor-pointer rounded-bl-xl bg-black px-2 py-2">
+                  <AddToWishList
+                    size="1.2rem"
+                    id={recommend.id}
+                    title={recommend.title}
+                    poster_path={recommend.poster_path}
+                    vote_average={recommend.vote_average}
+                    release_date={recommend.release_date}
+                    mediaType="movie"
+                  />
+                </span>
                 <div className="relative transition-all duration-300 ease-in-out hover:scale-[1.03]">
                   <Link href={`/movie/${recommend.id}`}>
                     <Image
