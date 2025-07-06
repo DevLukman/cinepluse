@@ -10,7 +10,7 @@ export default async function TrendingMovies() {
   const trendingMovies = data.results;
 
   return (
-    <section className="mt-[20px] w-full">
+    <section className="mt-[80px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
           Trending Movies

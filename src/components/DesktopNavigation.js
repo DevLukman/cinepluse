@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { useState } from "react";
+import SearchButton from "./searchButton";
 const navigationLinks = [
   {
     id: 1,
@@ -62,14 +63,14 @@ const navigationLinks = [
 export default function DesktopNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="bg-header">
-      <nav className="container-layout text-primary hidden w-full justify-between lg:flex">
+    <header className="bg-header fixed top-0 left-0 z-50 w-full">
+      <nav className="container-layout text-primary relative hidden w-full justify-between lg:flex">
         <Link className="font-primary text-2xl" href="/">
           CinePlus
         </Link>
 
         <div>
-          <ul className="flex w-full gap-[2rem]">
+          <ul className="flex w-full items-center gap-[1.5rem]">
             <li>
               <Link className="font-primary text-xl" href="/">
                 Home
@@ -90,6 +91,7 @@ export default function DesktopNavigation() {
                 Wishlist
               </Link>
             </li>
+            <SearchButton />
           </ul>
         </div>
       </nav>
@@ -111,7 +113,7 @@ function Navigation({ header, mainLink, number, isOpen, setIsOpen }) {
       onMouseEnter={handleOpen}
       onMouseLeave={handleLeave}
     >
-      <div className="flex items-center gap-1">
+      <div className="flex gap-1">
         <span>{header}</span>
         <span> {!curOpen ? <FaCaretDown /> : <FaCaretUp />}</span>
       </div>

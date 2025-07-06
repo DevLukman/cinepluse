@@ -12,7 +12,7 @@ export default async function OnTheAir() {
   const data = await tvShows("tv/on_the_air");
   const trendingTv = data.results;
   return (
-    <section className="min-h-main mt-[50px] w-full">
+    <section className="mt-[90px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
           On The Air

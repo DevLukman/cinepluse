@@ -85,14 +85,14 @@ export default async function MovieDetailsMobile({ data }) {
         </div>
       </section>
       <section className="container-layout">
-        <div className="flex flex-col gap-4">
+        <div className="mt-[50px] flex flex-col gap-4">
           <div className="mt-[50px] flex items-center gap-2 sm:mt-[30px]">
             <h1 className="text-secondary font-primary text-3xl">{title}</h1>
             <span className="text-primary font-primary text-base">
               ({release_date.split("-")[0]})
             </span>
           </div>
-          <div className="text-primary font-secondary mt-4 flex flex-col flex-wrap gap-[0.7rem] sm:flex-row">
+          <div className="text-primary font-secondary flex flex-col flex-wrap gap-[0.7rem] sm:flex-row">
             <p className="text-secondary border-primary w-fit rounded-sm border-2 px-1.5 text-sm">
               {rated}
             </p>

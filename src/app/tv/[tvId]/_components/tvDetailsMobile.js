@@ -60,7 +60,7 @@ export default async function TVDetailsMobile({ data }) {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
           }}
         ></div>
-        <div className="relative mt-auto h-[17.2rem] w-[11rem]">
+        <div className="relative mt-auto h-[17.2rem] w-[11rem] md:mt-[100px]">
           <Image
             src={
               poster_path
@@ -76,14 +76,14 @@ export default async function TVDetailsMobile({ data }) {
         </div>
       </section>
       <section className="container-layout">
-        <div className="flex flex-col gap-4">
+        <div className="mt-[50px] flex flex-col gap-4">
           <div className="mt-[50px] flex items-center gap-2 sm:mt-[30px]">
             <h1 className="text-secondary font-primary text-3xl">{name}</h1>
             <span className="text-primary font-primary text-base">
               ({first_air_date.split("-")[0]})
             </span>
           </div>
-          <div className="text-primary font-secondary mt-4 flex flex-col flex-wrap gap-[0.7rem] sm:flex-row">
+          <div className="text-primary font-secondary flex flex-col flex-wrap gap-[0.7rem] sm:flex-row">
             <p className="text-secondary border-primary w-fit rounded-sm border-2 px-1.5 text-sm">
               {rated}
             </p>
@@ -120,7 +120,7 @@ export default async function TVDetailsMobile({ data }) {
             {tagline}
           </p>
           <p className="font-secondary text-primary text-base">{overview}</p>
-          <div className="flex flex-col gap-[0.7rem]">
+          <div className="flex flex-wrap gap-[1.5rem]">
             <div className="font-secondary">
               <p className="text-primary text-sm">{writer}</p>
               <span className="text-secondary text-sm">Writer(s)</span>

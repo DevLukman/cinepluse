@@ -1,6 +1,6 @@
-import { Bebas_Neue } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
-import { Nosifer } from "next/font/google";
+import ReduxProvider from "@/store/ReduxProvider";
+import { Bebas_Neue, Geist_Mono, Nosifer } from "next/font/google";
+import "./globals.css";
 
 const BebasFont = Bebas_Neue({
   subsets: ["latin"],
@@ -17,9 +17,6 @@ const NosiferFont = Nosifer({
   weight: "400",
   variable: "--font-nosifer",
 });
-import "./globals.css";
-import Navigation from "@/components/Navigation";
-import ReduxProvider from "@/store/ReduxProvider";
 export const metadata = {
   title: "CINEPLUSE | Home",
   description: "CinePluse a movie website",
@@ -31,7 +28,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${BebasFont.variable} ${GeistFont.variable} ${NosiferFont.variable}`}
       >
-        <Navigation />
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>

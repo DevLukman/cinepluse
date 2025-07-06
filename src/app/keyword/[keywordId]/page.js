@@ -24,7 +24,7 @@ export default async function KeyWordResult({ params }) {
     : null;
 
   return (
-    <section className="mt-[20px] w-full">
+    <section className="mt-[105px] w-full">
       <div className="container-layout">
         <h1 className="text-secondary font-primary md:3xl text-2xl lg:text-4xl">
           {decodeRealtedKeyword} Related

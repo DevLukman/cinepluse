@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCaretDown, FaCaretUp, FaSearch } from "react-icons/fa";
 import { HiBars3 } from "react-icons/hi2";
 import { FaXmark } from "react-icons/fa6";
+import SearchButton from "./searchButton";
 
 const navigationLinks = [
   {
@@ -64,10 +65,20 @@ const navigationLinks = [
 
 export default function MobileNavigation() {
   const [openNav, setOpenNav] = useState(false);
+  useEffect(
+    function () {
+      if (openNav) {
+        document.body.classList.add("overflow-hidden");
+      }
+      return () => document.body.classList.remove("overflow-hidden");
+    },
+
+    [openNav],
+  );
   return (
     <>
-      <header className="bg-header">
-        <nav className="container-layout text-primary flex w-full items-center justify-between py-2 lg:hidden">
+      <header className="bg-header fixed top-0 left-0 z-50 w-full">
+        <nav className="container-layout text-primary relative flex w-full items-center justify-between py-2 lg:hidden">
           <button
             className="cursor-pointer"
             onClick={() => setOpenNav((openNav) => !openNav)}
@@ -78,7 +89,7 @@ export default function MobileNavigation() {
           <Link className="font-primary text-2xl" href="/">
             CinePluse
           </Link>
-          <FaSearch size="1.2rem" cursor="pointer" />
+          <SearchButton />
         </nav>
       </header>
       <NavigationContainer openNav={openNav} setOpenNav={setOpenNav} />
@@ -91,8 +102,8 @@ function NavigationContainer({ openNav, setOpenNav }) {
   return (
     <>
       {openNav && (
-        <div className="absolute top-0 left-0 h-[100dvh] w-full bg-[#0f0f0f]/10">
-          <div className="bg-main relative z-20 h-[100dvh] w-[60vw]">
+        <div className="fixed top-0 left-0 z-50 h-[100dvh] w-full bg-black/50">
+          <div className="bg-main relative h-[100dvh] w-[60vw]">
             <button
               className="text-primary absolute top-[5%] left-[5%] cursor-pointer"
               onClick={() => setOpenNav((openNav) => !openNav)}
@@ -104,7 +115,6 @@ function NavigationContainer({ openNav, setOpenNav }) {
                 <Link
                   href="/"
                   className="font-primary relative w-fit cursor-pointer text-2xl"
-                  onClick={() => setOpenNav((navopen) => !navopen)}
                 >
                   Home
                 </Link>
@@ -122,7 +132,6 @@ function NavigationContainer({ openNav, setOpenNav }) {
                 <Link
                   href="/wishlist"
                   className="font-primary relative w-fit cursor-pointer text-2xl"
-                  onClick={() => setOpenNav((navopen) => !navopen)}
                 >
                   Wishlist
                 </Link>
@@ -135,14 +144,7 @@ function NavigationContainer({ openNav, setOpenNav }) {
   );
 }
 
-function Navigation({
-  header,
-  mainLink,
-  number,
-  isOpen,
-  setIsOpen,
-  setOpenNav,
-}) {
+function Navigation({ header, mainLink, number, isOpen, setIsOpen }) {
   const curOpen = isOpen === number;
   function handleOpen() {
     setIsOpen(curOpen ? null : number);
@@ -162,7 +164,6 @@ function Navigation({
             <Link
               key={index}
               href={mainNav.href}
-              onClick={() => setOpenNav((navopen) => !navopen)}
               className="font-secondary cursor-pointer rounded-xl py-[0.7rem] text-base capitalize transition-all duration-150 hover:scale-[1.1]"
             >
               {mainNav.theLink}

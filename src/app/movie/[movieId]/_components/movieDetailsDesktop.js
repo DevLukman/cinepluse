@@ -64,7 +64,7 @@ export default async function MoviesDetailsDesktop({ data }) {
           }}
         ></div>
         <div className="container-layout h-main flex w-full gap-[3.2rem]">
-          <div className="mt-[50px] h-[25rem]">
+          <div className="mt-[80px] h-[25rem]">
             <Image
               src={
                 poster_path
@@ -77,7 +77,7 @@ export default async function MoviesDetailsDesktop({ data }) {
               height={400}
             />
           </div>
-          <div className="mt-[70px] flex flex-col gap-4">
+          <div className="mt-[80px] flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <h1 className="text-secondary font-primary text-3xl">{title}</h1>
               <span className="text-primary font-primary text-base">

@@ -1,10 +1,12 @@
 "use client";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import ReactPlayer from "react-player";
 export default function TrailerModal({ youtubeTrailer }) {
   const [openModal, setOpenModal] = useState(false);
+  const closeRef = useOutsideClick(setOpenModal);
   useEffect(
     function () {
       if (openModal) {
@@ -42,6 +44,7 @@ export default function TrailerModal({ youtubeTrailer }) {
               controls
               autoPlay
               playsInline
+              ref={closeRef}
               key={youtubeTrailer.key}
               className="absolute top-[50%] left-[50%] aspect-video -translate-x-[50%] -translate-y-[50%]"
             />
