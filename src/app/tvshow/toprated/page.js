@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import GridContainer from "@/components/GridContainer";
 import AddToWishList from "@/components/AddToWishList";
+import Rating from "@/components/Rating";
 export const metadata = {
   title: "CINEPLUSE | Top Rated",
   description: "Top Rated of CINEPLUSE",
@@ -48,19 +49,7 @@ export default async function TopRated() {
                     priority
                   />
                 </Link>
-                <span
-                  style={{
-                    width: `${Math.floor(show.vote_average * 10)}%`,
-                    background: `${
-                      Math.floor(show.vote_average * 10) >= 67
-                        ? "#008000"
-                        : Math.floor(show.vote_average * 10) >= 50
-                          ? "#ffff00"
-                          : "#ff253a"
-                    }`,
-                  }}
-                  className="absolute bottom-0 block h-1"
-                ></span>
+                <Rating vote_average={show.vote_average} />
               </div>
               <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
                 <p className="text-primary text-center text-sm">{show.name}</p>

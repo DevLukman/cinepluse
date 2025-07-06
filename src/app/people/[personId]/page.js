@@ -15,7 +15,7 @@ export default async function PersonDetails({ params }) {
   const personInformation = data;
   return (
     <section className="container-layout w-full">
-      <div className="mt-[30px] flex flex-col gap-[1.5rem] lg:flex-row lg:gap-[3rem]">
+      <div className="mt-[100px] flex flex-col gap-[1.5rem] lg:flex-row lg:gap-[3rem]">
         <div className="w-full lg:w-[20%]">
           <div className="relative">
             <Image

@@ -8,6 +8,7 @@ import { Navigation } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
 import AddToWishList from "@/components/AddToWishList";
+import Rating from "@/components/Rating";
 export default function Recommendations({ recommendationsData }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -88,19 +89,7 @@ export default function Recommendations({ recommendationsData }) {
                       priority
                     />
                   </Link>
-                  <span
-                    style={{
-                      width: `${Math.floor(recommend.vote_average * 10)}%`,
-                      background: `${
-                        Math.floor(recommend.vote_average * 10) >= 65
-                          ? "#008000"
-                          : Math.floor(recommend.vote_average * 10) >= 50
-                            ? "#ffff00"
-                            : "#ff253a"
-                      }`,
-                    }}
-                    className="absolute bottom-0 block h-1"
-                  ></span>
+                  <Rating vote_average={recommend.vote_average} />
                 </div>
                 <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
                   <p className="text-primary text-center text-sm">

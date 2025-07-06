@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Rating from "@/components/Rating";
 export default function CastCredit({ crewData }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -86,19 +87,7 @@ export default function CastCredit({ crewData }) {
                   priority
                 />
               </Link>
-              <span
-                style={{
-                  width: `${Math.floor(crew.vote_average * 10)}%`,
-                  background: `${
-                    Math.floor(crew.vote_average * 10) >= 65
-                      ? "#008000"
-                      : Math.floor(crew.vote_average * 10) >= 50
-                        ? "#ffff00"
-                        : "#ff253a"
-                  }`,
-                }}
-                className="absolute bottom-0 block h-1"
-              ></span>
+              <Rating vote_average={crew.vote_average} />
             </div>
             <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
               <p className="text-primary text-center text-sm">

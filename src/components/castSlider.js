@@ -73,7 +73,7 @@ export default function CastSlider({ castData }) {
               </Link>
             </div>
             <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
-              <p className="text-primary text-center text-base">{actor.name}</p>
+              <p className="text-primary text-center text-sm">{actor.name}</p>
               <p className="text-secondary text-center text-sm">
                 as {actor.character}
               </p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaCaretRight, FaRegHeart } from "react-icons/fa";
 import GridContainer from "./GridContainer";
 import AddToWishList from "./AddToWishList";
+import Rating from "./Rating";
 
 export default async function TrendingMovies() {
   const data = await movies("movie/popular");
@@ -56,22 +57,10 @@ export default async function TrendingMovies() {
                     priority
                   />
                 </Link>
-                <span
-                  style={{
-                    width: `${Math.floor(movie.vote_average * 10)}%`,
-                    background: `${
-                      Math.floor(movie.vote_average * 10) >= 65
-                        ? "#008000"
-                        : Math.floor(movie.vote_average * 10) >= 50
-                          ? "#ffff00"
-                          : "#ff253a"
-                    }`,
-                  }}
-                  className="absolute bottom-0 block h-1"
-                ></span>
+                <Rating vote_average={movie.vote_average} />
               </div>
               <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
-                <p className="text-primary text-center text-base">
+                <p className="text-primary text-center text-sm">
                   {movie.title}
                 </p>
                 <p className="text-secondary mt-1 text-sm">

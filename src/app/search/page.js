@@ -1,5 +1,6 @@
 import AddToWishList from "@/components/AddToWishList";
 import GridContainer from "@/components/GridContainer";
+import Rating from "@/components/Rating";
 import { search } from "@/lib/data-service";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,19 +72,7 @@ export default async function Search({ searchParams }) {
                     priority
                   />
                 </Link>
-                <span
-                  style={{
-                    width: `${Math.floor(search.vote_average * 10)}%`,
-                    background: `${
-                      Math.floor(search.vote_average * 10) >= 65
-                        ? "#008000"
-                        : Math.floor(search.vote_average * 10) >= 50
-                          ? "#ffff00"
-                          : "#ff253a"
-                    }`,
-                  }}
-                  className="absolute bottom-0 block h-1"
-                ></span>
+                <Rating vote_average={search.vote_average} />
               </div>
               <div className="font-secondary mt-2 flex w-full flex-col items-center justify-center">
                 <p className="text-primary text-center text-sm">

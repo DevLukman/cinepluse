@@ -19,6 +19,7 @@
     "react-player": "^3.0.0",
     "react-redux": "^9.2.0",
     "react-spinners": "^0.17.0",
+    "react-use": "^17.6.0",
     "swiper": "^11.2.8"
   },
   "devDependencies": {
