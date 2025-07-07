@@ -8,6 +8,7 @@ export default function Smoother({ children }) {
   useGSAP(() => {
     ScrollSmoother.create({
       smooth: 1,
+      smoothTouch: 0.3,
     });
   });
   return (
