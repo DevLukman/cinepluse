@@ -1,16 +1,6 @@
-"use client";
-
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import SplitText from "gsap/SplitText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(SplitText, ScrollTrigger);
 export default function Footer() {
-  //   useGSAP(function () {
-  //     const textSplit = SplitText.create("h1", { type: "chars", mask: true });
-  //   }, []);
   return (
-    <footer className="flex h-[70dvh] w-full flex-col items-center justify-center">
+    <footer className="50dvh flex w-full flex-col items-center justify-center lg:h-[70dvh]">
       <h1 className="font-primary text-secondary text-7xl uppercase sm:text-6xl md:text-7xl lg:text-9xl">
         Cinepluse
       </h1>

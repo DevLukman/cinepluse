@@ -1,9 +1,10 @@
 "use client";
+import { useScrollNav } from "@/hooks/useScrollNav";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaCaretDown, FaCaretUp, FaSearch } from "react-icons/fa";
-import { HiBars3 } from "react-icons/hi2";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import { HiBars3 } from "react-icons/hi2";
 import SearchButton from "./searchButton";
 
 const navigationLinks = [
@@ -65,6 +66,8 @@ const navigationLinks = [
 
 export default function MobileNavigation() {
   const [openNav, setOpenNav] = useState(false);
+  const scrollNav = useScrollNav();
+
   useEffect(
     function () {
       if (openNav) {
@@ -77,7 +80,10 @@ export default function MobileNavigation() {
   );
   return (
     <>
-      <header className="bg-header fixed top-0 left-0 z-50 w-full">
+      <header
+        className="bg-header fixed top-0 left-0 z-50 w-full"
+        ref={scrollNav}
+      >
         <nav className="container-layout text-primary relative flex w-full items-center justify-between py-2 lg:hidden">
           <button
             className="cursor-pointer"

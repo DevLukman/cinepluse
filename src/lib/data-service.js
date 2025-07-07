@@ -101,11 +101,9 @@ export async function getTrailer(endpoint) {
 
   return response.json();
 }
-export async function search(endpoint) {
-  //  const response = await fetch(`${API_URL}search/${global.search.type}?api_key=${API_KEY}&
-  // language=en-US&query=${global.search.term}&page=${global.search.page}`);
+export async function search(endpoint, page) {
   const response = await fetch(
-    `${BASE_URL}search/multi?api_key=${process.env.TMDB_KEY}&language=en-US&query=${endpoint}`,
+    `${BASE_URL}search/multi?api_key=${process.env.TMDB_KEY}&language=en-US&query=${endpoint}&page=${page}`,
   );
   if (!response.ok) throw new Error(`There was an error get ${endpoint}`);
 

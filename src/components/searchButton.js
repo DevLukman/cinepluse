@@ -32,6 +32,7 @@ export default function SearchButton() {
                 />
                 <input type="hidden" name="page" value="1" />
                 <button
+                  type="button"
                   className="bg-primary flex h-[3rem] w-16 cursor-pointer items-center justify-center md:w-14"
                   onClick={(e) => {
                     e.preventDefault();

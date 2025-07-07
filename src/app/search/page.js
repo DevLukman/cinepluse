@@ -14,7 +14,7 @@ export async function generateMetadata({ searchParams }) {
 export default async function Search({ searchParams }) {
   const { query } = await searchParams;
   const { page } = await searchParams;
-  const data = await search(query);
+  const data = await search(query, Number(page));
   if (!data.results.length)
     return (
       <h1 className="text-secondary font-primary mt-[100px] flex items-center justify-center text-3xl">
@@ -91,6 +91,24 @@ export default async function Search({ searchParams }) {
             </div>
           ))}
         </GridContainer>
+        <div className="mt-3 flex w-full items-center justify-end gap-2">
+          {Number(page) === 1 ? null : (
+            <Link
+              href={`/search?query=${query}&page=${Number(page) - 1}`}
+              className="font-secondary text-primary bg-secondary cursor-pointer rounded-sm px-3 py-2 uppercase disabled:cursor-not-allowed"
+            >
+              Prev
+            </Link>
+          )}
+          {Number(page) === data.total_pages ? null : (
+            <Link
+              href={`/search?query=${query}&page=${Number(page) + 1}`}
+              className="font-secondary text-primary bg-secondary cursor-pointer rounded-sm px-3 py-2 disabled:cursor-not-allowed"
+            >
+              Next
+            </Link>
+          )}
+        </div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { useState } from "react";
 import SearchButton from "./searchButton";
+import { useScrollNav } from "@/hooks/useScrollNav";
 const navigationLinks = [
   {
     id: 1,
@@ -62,8 +63,12 @@ const navigationLinks = [
 
 export default function DesktopNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const scrollNav = useScrollNav();
   return (
-    <header className="bg-header fixed top-0 left-0 z-50 w-full">
+    <header
+      className="bg-header fixed top-0 left-0 z-50 w-full"
+      ref={scrollNav}
+    >
       <nav className="container-layout text-primary relative hidden w-full justify-between lg:flex">
         <Link className="font-primary text-2xl" href="/">
           CinePlus
