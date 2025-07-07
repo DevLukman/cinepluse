@@ -1,6 +1,11 @@
-import { tvShowsDetails } from "@/lib/data-service";
+import { tvShows, tvShowsDetails } from "@/lib/data-service";
 import TvDetailsDesktop from "./_components/tvDetailsDesktop";
 import TVDetailsMobile from "./_components/tvDetailsMobile";
+export async function generateStaticParams() {
+  const data = await tvShows("tv/popular");
+  const ids = data.results.map((result) => ({ movieId: String(result.id) }));
+  return ids;
+}
 export async function generateMetadata({ params }) {
   const paramsId = await params;
   const { name } = await tvShowsDetails(`tv/${paramsId.tvId}`);

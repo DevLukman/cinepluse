@@ -80,6 +80,7 @@ export default async function MovieDetailsMobile({ data }) {
             alt={title}
             className="object-fit rounded-2xl"
             fill
+            priority
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
           />
         </div>

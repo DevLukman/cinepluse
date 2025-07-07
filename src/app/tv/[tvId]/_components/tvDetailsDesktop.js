@@ -60,7 +60,7 @@ export default async function TvDetailsDesktop({ data }) {
           }}
         ></div>
         <div className="container-layout h-main flex w-full gap-[3.2rem]">
-          <div className="mt-[80px] h-[25rem]">
+          <div className="relative mt-[80px] h-[27rem] w-[18rem]">
             <Image
               src={
                 poster_path
@@ -69,8 +69,8 @@ export default async function TvDetailsDesktop({ data }) {
               }
               alt={name}
               className="object-fit rounded-2xl"
-              width={300}
-              height={400}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
               priority
             />
           </div>
