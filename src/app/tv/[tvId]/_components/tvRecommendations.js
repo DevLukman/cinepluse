@@ -83,7 +83,7 @@ export default function TvRecommendations({ recommendationsData }) {
                           : "/no-image.jpg"
                       }
                       alt={recommend.name}
-                      className="object-fit"
+                      className="object-cover"
                       width={300}
                       height={400}
                       priority

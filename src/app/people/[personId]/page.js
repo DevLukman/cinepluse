@@ -25,7 +25,7 @@ export default async function PersonDetails({ params }) {
                   : "/no-image.jpg"
               }
               alt={personInformation.name}
-              className="object-fit rounded-xl"
+              className="rounded-xl object-cover"
               width={200}
               height={300}
               priority

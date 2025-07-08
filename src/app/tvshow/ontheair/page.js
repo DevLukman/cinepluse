@@ -44,7 +44,7 @@ export default async function OnTheAir() {
                         : "/no-image.jpg"
                     }
                     alt={show.name}
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority

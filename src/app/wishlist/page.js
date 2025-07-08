@@ -43,7 +43,7 @@ export default function Wishlist() {
                         : "/no-image.jpg"
                     }
                     alt={wish.title || wish.name}
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority

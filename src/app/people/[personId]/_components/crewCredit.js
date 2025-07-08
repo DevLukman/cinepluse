@@ -81,7 +81,7 @@ export default function CastCredit({ crewData }) {
                       ? `https://image.tmdb.org/t/p/w500${crew.poster_path}`
                       : "/no-image.jpg"
                   }
-                  className="object-fit"
+                  className="object-cover"
                   width={300}
                   height={400}
                   priority

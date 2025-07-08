@@ -68,7 +68,7 @@ export default async function TvDetailsDesktop({ data }) {
                   : "/no-image.jpg"
               }
               alt={name}
-              className="object-fit rounded-2xl"
+              className="rounded-2xl object-cover"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
               priority

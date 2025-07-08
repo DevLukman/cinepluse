@@ -30,7 +30,7 @@ export default async function TopRated() {
                         : "/no-image.jpg"
                     }
                     alt={person.name}
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority

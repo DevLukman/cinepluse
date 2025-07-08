@@ -66,7 +66,7 @@ export default async function Search({ searchParams }) {
                         ? `https://image.tmdb.org/t/p/w500${search.poster_path}`
                         : "/no-image.jpg"
                     }
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority

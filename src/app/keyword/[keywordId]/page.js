@@ -56,7 +56,7 @@ export default async function KeyWordResult({ params }) {
                         : "/no-image.jpg"
                     }
                     alt={movie.title}
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority

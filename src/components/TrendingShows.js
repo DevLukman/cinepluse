@@ -50,7 +50,7 @@ export default async function TrendingShows() {
                         : "/no-image.jpg"
                     }
                     alt={show.name}
-                    className="object-fit"
+                    className="object-cover"
                     width={300}
                     height={400}
                     priority
