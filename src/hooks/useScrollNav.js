@@ -28,7 +28,8 @@ export function useScrollNav() {
       gsap.to(navRef.current, {
         yPercent: navVisible ? 0 : -100,
         opacity: navVisible ? 1 : 0,
-        duration: 0.4,
+        ease: "power4.inOut",
+        duration: 0.5,
       });
     },
     [navVisible],
