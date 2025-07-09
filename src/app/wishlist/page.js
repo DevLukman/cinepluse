@@ -16,7 +16,7 @@ export default function Wishlist() {
       </h1>
     );
   return (
-    <section className="container-layout">
+    <section className="container-layout min-h-[50dvh]">
       <div className="mt-[80px]">
         <h1 className="font-primary text-secondary text-3xl">Wishlist</h1>;
         <GridContainer>
