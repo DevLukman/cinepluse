@@ -34,7 +34,7 @@ export default function TrailerModal({ youtubeTrailer }) {
           <div className="h-main fixed top-0 left-0 z-50 w-full bg-black/60">
             <button
               type="button"
-              className="absolute top-[7%] z-50 cursor-pointer sm:top-[10%] sm:right-[3%]"
+              className="absolute top-[7%] right-[3%] z-50 cursor-pointer sm:top-[10%]"
               onClick={() => setOpenModal(false)}
             >
               <FaXmark size="2rem" color="red" />
