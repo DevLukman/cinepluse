@@ -11,9 +11,11 @@ export default function Wishlist() {
   const wishListContent = useSelector(getWishList);
   if (wishListContent.length === 0)
     return (
-      <h1 className="font-primary text-secondary absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-2xl sm:text-3xl">
-        Your Wishlist is Empty
-      </h1>
+      <section className="flex min-h-[50dvh] items-center justify-center">
+        <h1 className="font-primary text-secondary text-2xl sm:text-3xl">
+          Your Wishlist is Empty
+        </h1>
+      </section>
     );
   return (
     <section className="container-layout min-h-[50dvh]">
