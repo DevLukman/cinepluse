@@ -1,45 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --color-grayscale-26: #000000;
   --color-green-4: #29ab87;
   --color-green-3: #008000;
-  --color-grayscale-6: #e6e6e6;
-  --color-grayscale-5: rgb(230, 230, 230);
-  --color-grayscale-8: #a8a8a8;
-  --color-grayscale-7: rgb(168, 168, 168);
-  --color-grayscale-2: #ffffff;
-  --color-grayscale-1: rgb(255, 255, 255);
   --color-yellow-2: #ffff00;
-  --color-green-6: #008000;
-  --color-green-5: rgb(0, 128, 0);
-  --color-grayscale-23: #000000cc;
-  --color-grayscale-21: #00000080;
-  --color-grayscale-24: #000000b3;
-  --color-green-2: #16e3a92e;
-  --color-grayscale-17: #00000000;
-  --color-grayscale-16: #000000e6;
-  --color-grayscale-15: rgb(0, 0, 0);
-  --color-green-1: rgb(22, 227, 169);
-  --color-grayscale-14: #0f0f0f;
-  --color-grayscale-25: #000000bf;
   --color-red-2: #ff253a;
-  --color-grayscale-4: #eeeeee;
-  --color-grayscale-22: #00000026;
-  --color-grayscale-20: #0000001a;
-  --color-grayscale-19: #0000000d;
-  --color-grayscale-10: #757575;
-  --color-grayscale-12: #616161;
-  --color-blue-4: #007aff;
-  --color-blue-2: #9ca3af;
-  --color-grayscale-18: #00000070;
+  --color-grayscale-15: rgb(0, 0, 0);
+  --color-grayscale-6: #e6e6e6;
   --color-grayscale-13: rgb(15, 15, 15);
-  --color-red-1: rgb(255, 37, 58);
-  --color-grayscale-3: rgb(238, 238, 238);
-  --color-grayscale-9: rgb(117, 117, 117);
-  --color-grayscale-11: rgb(97, 97, 97);
-  --color-blue-3: rgb(0, 122, 255);
-  --color-blue-1: rgb(156, 163, 175);
 }
 
 body {
@@ -69,13 +37,6 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-.four_zero_four_bg {
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 400px;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 @theme inline {
