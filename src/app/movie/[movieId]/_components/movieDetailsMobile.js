@@ -70,7 +70,7 @@ export default async function MovieDetailsMobile({ data }) {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
           }}
         ></div>
-        <div className="relative mt-auto h-[17.2rem] w-[11rem]">
+        <div className="relative mt-auto h-[15rem] w-[10rem]">
           <Image
             src={
               poster_path
