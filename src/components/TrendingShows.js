@@ -1,9 +1,9 @@
 import { tvShows } from "@/lib/data-service";
-import { FaCaretRight, FaRegHeart } from "react-icons/fa";
-import GridContainer from "./GridContainer";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { FaCaretRight } from "react-icons/fa";
 import AddToWishList from "./AddToWishList";
+import GridContainer from "./GridContainer";
 import Rating from "./Rating";
 
 export default async function TrendingShows() {

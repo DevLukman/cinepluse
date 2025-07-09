@@ -46,7 +46,7 @@ export default function AddToWishList({
       onClick={
         inWishList ? () => handleRemoveFromWishlist(id) : handleAddToWishList
       }
-      className="flex cursor-pointer items-center gap-1 text-sm transition-transform duration-300 hover:scale-[1.07]"
+      className="flex cursor-pointer items-center gap-1 transition-transform duration-300 hover:scale-[1.07]"
     >
       <span>
         {!inWishList ? (
@@ -55,7 +55,9 @@ export default function AddToWishList({
           <AiFillHeart color="#29ab87" size={size} />
         )}
       </span>
-      <span className="font-secondary">{inWishList ? content2 : content}</span>
+      <span className="font-secondary text-[12px]">
+        {inWishList ? content2 : content}
+      </span>
     </button>
   );
 }
