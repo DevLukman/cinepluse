@@ -21,18 +21,20 @@ export default function TrailerModal({ youtubeTrailer }) {
     youtubeTrailer && (
       <div className="overflow-hidden">
         <button
+          type="button"
           onClick={() => setOpenModal((open) => !open)}
-          className="flex cursor-pointer items-center gap-1 text-sm transition-transform duration-300 hover:scale-[1.07]"
+          className="flex cursor-pointer items-center gap-1 transition-transform duration-300 hover:scale-[1.07]"
         >
           <span>
             <FaPlay />
           </span>
-          <span className="font-secondary">Watch trailer</span>
+          <span className="font-secondary text-sm">Watch trailer</span>
         </button>
         {openModal ? (
           <div className="h-main fixed top-0 left-0 z-50 w-full bg-black/60">
             <button
-              className="absolute top-[10%] right-[3%] cursor-pointer"
+              type="button"
+              className="absolute top-[7%] z-50 cursor-pointer sm:top-[10%] sm:right-[3%]"
               onClick={() => setOpenModal(false)}
             >
               <FaXmark size="2rem" color="red" />

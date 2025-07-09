@@ -139,9 +139,7 @@ export default async function MovieDetailsMobile({ data }) {
           <p className="font-secondary text-primary italic opacity-70">
             {tagline}
           </p>
-          <p className="font-secondary text-primary text-justify text-sm">
-            {overview}
-          </p>
+          <p className="font-secondary text-primary text-sm">{overview}</p>
           <div className="flex flex-col gap-[0.7rem]">
             <div className="font-secondary">
               <p className="text-primary text-sm">{writer}</p>
