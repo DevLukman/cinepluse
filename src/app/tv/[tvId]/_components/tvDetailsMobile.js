@@ -60,7 +60,7 @@ export default async function TVDetailsMobile({ data }) {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
           }}
         ></div>
-        <div className="relative mt-[7rem] h-[15rem] w-[10rem] md:mt-[100px]">
+        <div className="relative mt-[5rem] h-[15rem] w-[10rem] md:mt-[100px]">
           <Image
             src={
               poster_path
@@ -88,14 +88,18 @@ export default async function TVDetailsMobile({ data }) {
               {rated}
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
-              <span className="text-secondary sm:hidden">Genre(s):</span>
-              <span>{genre}</span>
+            <p>
+              <span className="text-secondary text-sm sm:hidden">
+                Genre(s):
+              </span>
+              <span className="text-sm">{genre}</span>
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
-              <span className="text-secondary sm:hidden">Country: </span>
-              <span>{country}</span>
+            <p>
+              <span className="text-secondary text-sm sm:hidden">
+                Country:{" "}
+              </span>
+              <span className="text-sm">{country}</span>
             </p>
           </div>
           <div className="flex items-center justify-between gap-4">
@@ -116,7 +120,7 @@ export default async function TVDetailsMobile({ data }) {
               </div>
             ))}
           </div>
-          <p className="font-secondary text-primary italic opacity-70">
+          <p className="font-secondary text-primary text-base italic opacity-70">
             {tagline}
           </p>
           <p className="font-secondary text-primary text-base">{overview}</p>
@@ -150,52 +154,62 @@ export default async function TVDetailsMobile({ data }) {
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Status:</span>
+                  <span className="text-secondary text-sm">Status:</span>
                 </div>
-                <span className="text-primary">{status}</span>
+                <span className="text-primary text-sm">{status}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">first Air Date:</span>
+                  <span className="text-secondary text-sm">
+                    first Air Date:
+                  </span>
                 </div>
-                <span className="text-primary">{first_air_date}</span>
+                <span className="text-primary text-sm">{first_air_date}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Last Air Date:</span>
+                  <span className="text-secondary text-sm">Last Air Date:</span>
                 </div>
-                <span className="text-primary">{last_air_date}</span>
+                <span className="text-primary text-sm">{last_air_date}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Number of Seasons:</span>
+                  <span className="text-secondary text-sm">
+                    Number of Seasons:
+                  </span>
                 </div>
-                <span className="text-primary">{number_of_seasons}</span>
+                <span className="text-primary text-sm">
+                  {number_of_seasons}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Number of episodes:</span>
+                  <span className="text-secondary text-sm">
+                    Number of episodes:
+                  </span>
                 </div>
-                <span className="text-primary">{number_of_episodes}</span>
+                <span className="text-primary text-sm">
+                  {number_of_episodes}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Awards:</span>
+                  <span className="text-secondary text-sm">Awards:</span>
                 </div>
                 <span className="text-primary text-sm">{awards}</span>
               </div>
@@ -204,7 +218,7 @@ export default async function TVDetailsMobile({ data }) {
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">language(s):</span>
+                  <span className="text-secondary text-sm">language(s):</span>
                 </div>
                 <span className="text-primary text-sm">{language}</span>
               </div>
@@ -213,9 +227,9 @@ export default async function TVDetailsMobile({ data }) {
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">IMDbVotes:</span>
+                  <span className="text-secondary text-sm">IMDbVotes:</span>
                 </div>
-                <span className="text-primary">{imdbVotes}</span>
+                <span className="text-primary text-sm">{imdbVotes}</span>
               </div>
             </div>
             <div className="font-secondary mt-4 flex items-center gap-1">
@@ -223,9 +237,9 @@ export default async function TVDetailsMobile({ data }) {
                 <span>
                   <GoDotFill className="text-secondary" />
                 </span>
-                <span className="text-secondary">Homepage:</span>
+                <span className="text-secondary text-sm">Homepage:</span>
               </div>
-              <a href={homepage} className="text-primary opacity-80">
+              <a href={homepage} className="text-primary text-sm opacity-80">
                 Vist Page
               </a>
             </div>

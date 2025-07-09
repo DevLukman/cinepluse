@@ -70,7 +70,7 @@ export default async function MovieDetailsMobile({ data }) {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
           }}
         ></div>
-        <div className="relative mt-[7rem] h-[15rem] w-[10rem]">
+        <div className="relative mt-[6rem] h-[15rem] w-[10rem]">
           <Image
             src={
               poster_path
@@ -98,24 +98,34 @@ export default async function MovieDetailsMobile({ data }) {
               {rated}
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
+            <p>
               <span className="text-secondary sm:hidden">Runtime:</span>
-              <span>({convertMinutesToHours(runtime)})</span>
+              <span className="text-sm">
+                ({convertMinutesToHours(runtime)})
+              </span>
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
-              <span className="text-secondary sm:hidden">Genre(s):</span>
-              <span>{genres.map((genre) => genre.name).join(",  ")}</span>
+            <p>
+              <span className="text-secondary text-sm sm:hidden">
+                Genre(s):
+              </span>
+              <span className="text-sm">
+                {genres.map((genre) => genre.name).join(",  ")}
+              </span>
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
-              <span className="text-secondary sm:hidden">Release Date: </span>
-              <span>{release_date}</span>
+            <p>
+              <span className="text-secondary text-sm sm:hidden">
+                Release Date:{" "}
+              </span>
+              <span className="text-sm">{release_date}</span>
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
-            <p className="text-sm">
-              <span className="text-secondary sm:hidden">Country: </span>
-              <span>{country}</span>
+            <p>
+              <span className="text-secondary text-sm sm:hidden">
+                Country:{" "}
+              </span>
+              <span className="text-sm">{country}</span>
             </p>
           </div>
           <div className="flex items-center justify-between gap-4">
@@ -136,7 +146,7 @@ export default async function MovieDetailsMobile({ data }) {
               </div>
             ))}
           </div>
-          <p className="font-secondary text-primary italic opacity-70">
+          <p className="font-secondary text-primary text-base italic opacity-70">
             {tagline}
           </p>
           <p className="font-secondary text-primary text-sm">{overview}</p>
@@ -170,25 +180,25 @@ export default async function MovieDetailsMobile({ data }) {
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Status:</span>
+                  <span className="text-secondary text-sm">Status:</span>
                 </div>
-                <span className="text-primary">{status}</span>
+                <span className="text-primary text-sm">{status}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Awards:</span>
+                  <span className="text-secondary text-sm">Awards:</span>
                 </div>
-                <span className="text-primary">{awards}</span>
+                <span className="text-primary text-sm">{awards}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">language(s):</span>
+                  <span className="text-secondary text-sm">language(s):</span>
                 </div>
                 <span className="text-primary text-sm">{language}</span>
               </div>
@@ -197,36 +207,40 @@ export default async function MovieDetailsMobile({ data }) {
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Revenue:</span>
+                  <span className="text-secondary text-sm">Revenue:</span>
                 </div>
-                <span className="text-primary">{formatToDollars(revenue)}</span>
+                <span className="text-primary text-sm">
+                  {formatToDollars(revenue)}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">Budget:</span>
+                  <span className="text-secondary text-sm">Budget:</span>
                 </div>
-                <span className="text-primary">{formatToDollars(budget)}</span>
+                <span className="text-primary text-sm">
+                  {formatToDollars(budget)}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">BoxOffice:</span>
+                  <span className="text-secondary text-sm">BoxOffice:</span>
                 </div>
-                <span className="text-primary">{boxOffice}</span>
+                <span className="text-primary text-sm">{boxOffice}</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
                   <span>
                     <GoDotFill className="text-secondary" />
                   </span>
-                  <span className="text-secondary">IMDbVotes:</span>
+                  <span className="text-secondary text-sm">IMDbVotes:</span>
                 </div>
-                <span className="text-primary">{imdbVotes}</span>
+                <span className="text-primary text-sm">{imdbVotes}</span>
               </div>
             </div>
             <div className="font-secondary mt-4 flex items-center gap-1">
@@ -234,9 +248,9 @@ export default async function MovieDetailsMobile({ data }) {
                 <span>
                   <GoDotFill className="text-secondary" />
                 </span>
-                <span className="text-secondary">Homepage:</span>
+                <span className="text-secondary text-sm">Homepage:</span>
               </div>
-              <a href={homepage} className="text-primary opacity-80">
+              <a href={homepage} className="text-primary text-sm opacity-80">
                 Vist Page
               </a>
             </div>
