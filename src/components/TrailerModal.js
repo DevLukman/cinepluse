@@ -48,7 +48,7 @@ export default function TrailerModal({ youtubeTrailer }) {
               playsInline
               ref={closeRef}
               key={youtubeTrailer.key}
-              className="absolute top-[50%] left-[50%] aspect-video -translate-x-[50%] -translate-y-[50%]"
+              className="absolute top-[50%] left-[50%] z-30 aspect-video -translate-x-[50%] -translate-y-[50%]"
             />
           </div>
         ) : (
