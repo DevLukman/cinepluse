@@ -88,6 +88,7 @@ export default function MobileNavigation() {
           <button
             className="cursor-pointer"
             onClick={() => setOpenNav((openNav) => !openNav)}
+            type="button"
           >
             <HiBars3 size="1.5rem" />
           </button>
@@ -113,6 +114,7 @@ function NavigationContainer({ openNav, setOpenNav }) {
             <button
               className="text-primary absolute top-[5%] left-[5%] cursor-pointer"
               onClick={() => setOpenNav((openNav) => !openNav)}
+              type="button"
             >
               <FaXmark size="1.5rem" />
             </button>

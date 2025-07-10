@@ -10,10 +10,11 @@ export default function SearchButton() {
   }
   return (
     <>
-      <div className="relative">
+      <li className="relative">
         <button
           onClick={() => setShowForm((showForm) => !showForm)}
           className="flex items-center justify-center"
+          type="button"
         >
           <FaSearch size="1.2rem" cursor="pointer" />
         </button>
@@ -51,7 +52,7 @@ export default function SearchButton() {
             </div>
           </Form>
         )}
-      </div>
+      </li>
     </>
   );
 }
