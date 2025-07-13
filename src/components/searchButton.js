@@ -10,7 +10,7 @@ export default function SearchButton() {
   }
   return (
     <>
-      <li className="relative">
+      <div className="relative">
         <button
           onClick={() => setShowForm((showForm) => !showForm)}
           className="flex items-center justify-center"
@@ -32,6 +32,7 @@ export default function SearchButton() {
                   aria-label="search"
                 />
                 <input type="hidden" name="page" value="1" />
+
                 <button
                   type="button"
                   className="bg-primary flex h-[3rem] w-16 cursor-pointer items-center justify-center md:w-14"
@@ -42,6 +43,7 @@ export default function SearchButton() {
                 >
                   <FaXmark className="text-xl text-[red] transition-all group-hover:scale-[1.15]" />
                 </button>
+
                 <button
                   type="submit"
                   className="group bg-secondary flex h-[3rem] w-16 cursor-pointer items-center justify-center rounded-r-lg md:w-14"
@@ -52,7 +54,7 @@ export default function SearchButton() {
             </div>
           </Form>
         )}
-      </li>
+      </div>
     </>
   );
 }

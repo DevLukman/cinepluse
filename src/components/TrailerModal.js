@@ -39,17 +39,19 @@ export default function TrailerModal({ youtubeTrailer }) {
             >
               <FaXmark size="2rem" color="red" />
             </button>
-            <ReactPlayer
-              src={`https://www.youtube.com/watch?v=${youtubeTrailer.key}`}
-              width="75%"
-              height="75%"
-              controls
-              autoPlay
-              playsInline
-              ref={closeRef}
-              key={youtubeTrailer.key}
-              className="absolute top-[50%] left-[50%] z-30 aspect-video -translate-x-[50%] -translate-y-[50%]"
-            />
+            <div className="relative h-[100%] w-[100%]">
+              <ReactPlayer
+                src={`https://www.youtube.com/watch?v=${youtubeTrailer.key}`}
+                width="80%"
+                height="80%"
+                controls
+                autoPlay
+                playsInline
+                ref={closeRef}
+                key={youtubeTrailer.key}
+                className="border-primary absolute top-[50%] left-[50%] z-30 aspect-video -translate-x-[50%] -translate-y-[50%] border-1"
+              />
+            </div>
           </div>
         ) : (
           ""

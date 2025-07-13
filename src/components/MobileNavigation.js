@@ -92,7 +92,6 @@ export default function MobileNavigation() {
           >
             <HiBars3 size="1.5rem" />
           </button>
-
           <Link className="font-primary text-2xl" href="/">
             CinePluse
           </Link>
