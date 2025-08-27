@@ -22,31 +22,32 @@ export default async function MovieDetailsMobile({ data }) {
     genres,
     homepage,
     id,
-    origin_country,
-    original_language,
-    original_title,
     overview,
-    popularity,
     production_companies,
     production_countries,
     release_date,
     revenue,
     runtime,
-    spoken_languages,
     status,
     tagline,
     title,
     vote_average,
-    vote_count,
     imdb_id,
   } = data;
-  const IMDbResponse = await getIMDBData(`${imdb_id}`);
-  const castData = await castandCrew(`movie/${id}/credits`);
-  const keywordResults = await keywords(`movie/${id}/keywords`);
-  const recommendationsData = await recommendations(
-    `movie/${id}/recommendations`,
-  );
-  const movieTrailer = await getTrailer(`movie/${id}/videos`);
+  const [
+    IMDbResponse,
+    castData,
+    keywordResults,
+    recommendationsData,
+    movieTrailer,
+  ] = await Promise.all([
+    getIMDBData(`${imdb_id}`),
+    castandCrew(`movie/${id}/credits`),
+    keywords(`movie/${id}/keywords`),
+    recommendations(`movie/${id}/recommendations`),
+    getTrailer(`movie/${id}/videos`),
+  ]);
+
   const youtubeTrailer = movieTrailer.results.find(
     (vid) => vid.type === "Trailer" && vid.site === "YouTube",
   );
@@ -116,15 +117,13 @@ export default async function MovieDetailsMobile({ data }) {
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
             <p>
               <span className="text-secondary text-sm sm:hidden">
-                Release Date:{" "}
+                Release Date:
               </span>
               <span className="text-sm">{release_date}</span>
             </p>
             <span className="bg-secondary hidden h-[20px] w-[2px] sm:block"></span>
             <p>
-              <span className="text-secondary text-sm sm:hidden">
-                Country:{" "}
-              </span>
+              <span className="text-secondary text-sm sm:hidden">Country:</span>
               <span className="text-sm">{country}</span>
             </p>
           </div>

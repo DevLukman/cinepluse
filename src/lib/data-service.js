@@ -1,3 +1,4 @@
+"use server";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const KEY = "b9852d64";
 export async function movies(endpoint) {

@@ -33,13 +33,21 @@ export default async function MoviesDetailsDesktop({ data }) {
     title,
     imdb_id,
   } = data;
-  const IMDbResponse = await getIMDBData(`${imdb_id}`);
-  const castData = await castandCrew(`movie/${id}/credits`);
-  const keywordResults = await keywords(`movie/${id}/keywords`);
-  const recommendationsData = await recommendations(
-    `movie/${id}/recommendations`,
-  );
-  const movieTrailer = await getTrailer(`movie/${id}/videos`);
+
+  const [
+    IMDbResponse,
+    castData,
+    keywordResults,
+    recommendationsData,
+    movieTrailer,
+  ] = await Promise.all([
+    getIMDBData(`${imdb_id}`),
+    castandCrew(`movie/${id}/credits`),
+    keywords(`movie/${id}/keywords`),
+    recommendations(`movie/${id}/recommendations`),
+    getTrailer(`movie/${id}/videos`),
+  ]);
+
   const youtubeTrailer = movieTrailer.results.find(
     (vid) => vid.type === "Trailer" && vid.site === "YouTube",
   );
